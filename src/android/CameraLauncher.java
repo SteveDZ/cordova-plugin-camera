@@ -65,6 +65,7 @@ import android.support.v4.content.FileProvider;
 import android.util.Base64;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import com.ionicframework.digibb.BuildConfig;
 
 /**
  * This class launches the camera view, allows the user to take a picture, closes the camera view,
@@ -137,7 +138,8 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
         this.callbackContext = callbackContext;
         //Adding an API to CoreAndroid to get the BuildConfigValue
         //This allows us to not make this a breaking change to embedding
-        this.applicationId = (String) BuildHelper.getBuildConfigValue(cordova.getActivity(), "APPLICATION_ID");
+        //this.applicationId = (String) BuildHelper.getBuildConfigValue(cordova.getActivity(), "APPLICATION_ID");
+        this.applicationId = BuildConfig.APPLICATION_ID;
         this.applicationId = preferences.getString("applicationId", this.applicationId);
 
 
